@@ -33,8 +33,7 @@ public class Menu {
     public String obterTelefone() {
         System.out.print("Digite o telefone a ser buscado: ");
         String telefone = this.n.nextLine();
-        telefone.replaceAll("[()+- ]", "");
-        return telefone;
+        return telefone.replaceAll("[()+- ]", "");
     }
 
     public String obterNome() {
