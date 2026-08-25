@@ -25,7 +25,7 @@ public class ListaEncadeada<T> implements IColecao<T> {
             return;
         } 
 
-        while (iterator.next != null && this.comparator(iterator.next.value, newNode.value) <= 0)
+        while (iterator.next != null && this.comparator.compare(iterator.next.value, newNode.value) <= 0)
             iterator = iterator.next;
 
         newNode.next = iterator.next;
@@ -104,7 +104,7 @@ public class ListaEncadeada<T> implements IColecao<T> {
         return null;
     }
     
-    public procurarPor(T value) {
+    public T procurarPor(T value) {
         return this.procurarPor(value, this.comparator);
     }
     

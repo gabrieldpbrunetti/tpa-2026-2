@@ -1,7 +1,6 @@
 package com.example;
 
-public interface IColecao {
-    public interface IColecao<T> {
+public interface IColecao<T> {
 
     /**
      * Método para adicionar um elemento à estrutura.
