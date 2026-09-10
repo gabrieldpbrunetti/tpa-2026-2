@@ -1,4 +1,4 @@
-package com.example;
+package colecao;
 
 public interface IColecao<T> {
 

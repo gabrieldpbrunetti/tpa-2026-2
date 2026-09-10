@@ -1,4 +1,4 @@
-package com.example;
+package com.example.app;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.io.*;
@@ -27,18 +27,18 @@ public class Menu {
             .charAt(0);
     }
 
-    public ArrayList<ContatoIn> carregarArquivoContatos(String path) throws FileNotFoundException, IOException {
+    public ArrayList<Contato> carregarArquivoContatos(String path) throws FileNotFoundException, IOException {
         BufferedReader br = new BufferedReader(new FileReader(path));
         int amountOfLines = Integer.parseInt(br.readLine().strip());
-        
-        ArrayList<ContatoIn> contatos = new ArrayList<>(amountOfLines);
+
+        ArrayList<Contato> contatos = new ArrayList<>(amountOfLines);
         String line;
-        
+
         while ((line = br.readLine()) != null) {
             String[] parts = line.split(",");
             String nome = parts[0].strip();
             String telefone = parts[1].strip();
-            ContatoIn contato = new ContatoIn(nome, telefone);
+            Contato contato = new Contato(nome, telefone);
             contatos.add(contato);
         }
         br.close();
@@ -58,12 +58,12 @@ public class Menu {
         return path;
     }
 
-    public ContatoIn obterContato() {
+    public Contato obterContato() {
         System.out.print("Digite o nome do contato: ");
         String nome = this.s.nextLine();
         System.out.print("Digite o telefone do contato: ");
-        String telefone = this.s.nextLine();
-        return new ContatoIn(nome, telefone);
+        String telefone = this.s.nextLine().replaceAll("[()+- ]", "");
+        return new Contato(nome, telefone);
     }
 
     public String obterTelefone() {

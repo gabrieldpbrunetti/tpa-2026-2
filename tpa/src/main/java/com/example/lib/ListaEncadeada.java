@@ -1,5 +1,7 @@
-package com.example;
+package com.example.lib;
 import java.util.Comparator;
+
+import colecao.IColecao;
 
 public class ListaEncadeada<T> implements IColecao<T> {
     private Node<T> head;
@@ -54,10 +56,13 @@ public class ListaEncadeada<T> implements IColecao<T> {
 
     public T pesquisar(T valor) {
         Node<T> iterator = this.head;
-        while(iterator != null) {
-            if (iterator.value.equals(valor))
+        while (iterator != null) {
+            int cmp = this.comparator.compare(iterator.value, valor);
+            if (cmp == 0)
                 return iterator.value;
-            
+            if (this.ordernar && cmp > 0)
+                return null;
+
             iterator = iterator.next;
         }
         return null;
@@ -66,17 +71,24 @@ public class ListaEncadeada<T> implements IColecao<T> {
     public boolean remover(T valor) {
         if (this.isEmpty()) return false;
 
-        if (this.head.value.equals(valor)) {
+        int cmpHead = this.comparator.compare(this.head.value, valor);
+        if (cmpHead == 0) {
             this.head = this.head.next;
             return true;
         }
+        if (this.ordernar && cmpHead > 0)
+            return false;
 
         Node<T> iterator = this.head;
-        while(iterator != null) {
-            if (iterator.next != null && iterator.next.value.equals(valor)) {
-                    iterator.next = iterator.next.next;
-                    return true;
+        while (iterator.next != null) {
+            int cmp = this.comparator.compare(iterator.next.value, valor);
+            if (cmp == 0) {
+                iterator.next = iterator.next.next;
+                return true;
             }
+            if (this.ordernar && cmp > 0)
+                return false;
+
             iterator = iterator.next;
         }
 
@@ -91,21 +103,6 @@ public class ListaEncadeada<T> implements IColecao<T> {
             iterator = iterator.next;
         }
         return count;
-    }
-    
-    public T procurarPor(T value, Comparator<T> comparator) {
-        Node<T> iterator = this.head;
-        while(iterator != null) {
-            if (comparator.compare(iterator.value, value) == 0)
-                return iterator.value;
-            
-            iterator = iterator.next;
-        }
-        return null;
-    }
-    
-    public T procurarPor(T value) {
-        return this.procurarPor(value, this.comparator);
     }
     
     public String toString() {
