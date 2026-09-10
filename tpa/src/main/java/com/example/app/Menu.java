@@ -62,14 +62,14 @@ public class Menu {
         System.out.print("Digite o nome do contato: ");
         String nome = this.s.nextLine();
         System.out.print("Digite o telefone do contato: ");
-        String telefone = this.s.nextLine().replaceAll("[()+- ]", "");
+        String telefone = this.s.nextLine().replaceAll("[()+ -]", "");
         return new Contato(nome, telefone);
     }
 
     public String obterTelefone() {
         System.out.print("Digite o telefone a ser buscado: ");
         String telefone = this.s.nextLine();
-        return telefone.replaceAll("[()+- ]", "");
+        return telefone.replaceAll("[()+ -]", "");
     }
 
     public String obterNome() {
