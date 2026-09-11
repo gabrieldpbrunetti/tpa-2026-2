@@ -52,12 +52,6 @@ public class Menu {
         return resposta == 's';
     }
 
-    public String obterArquivoCarga() {
-        System.out.print("Digite o caminho do arquivo: ");
-        String path = this.s.nextLine();
-        return path;
-    }
-
     public Contato obterContato() {
         System.out.print("Digite o nome do contato: ");
         String nome = this.s.nextLine();
