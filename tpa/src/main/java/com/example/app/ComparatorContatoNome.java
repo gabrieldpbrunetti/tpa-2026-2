@@ -11,11 +11,11 @@ public class ComparatorContatoNome implements Comparator<Contato> {
         }
 
         if (contato1 == null) {
-            return 1;
+            return -1;
         }
 
         if (contato2 == null) {
-            return -1;
+            return 1;
         }
 
         if (contato1.getNome() == null && contato2.getNome() == null) {
@@ -23,11 +23,11 @@ public class ComparatorContatoNome implements Comparator<Contato> {
         }
 
         if (contato1.getNome() == null) {
-            return 1;
+            return -1;
         }
 
         if (contato2.getNome() == null) {
-            return -1;
+            return 1;
         }
 
         int porNome = contato1.getNome().compareToIgnoreCase(contato2.getNome());
