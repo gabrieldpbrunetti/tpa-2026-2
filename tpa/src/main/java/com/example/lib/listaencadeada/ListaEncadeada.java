@@ -1,4 +1,4 @@
-package com.example.lib;
+package com.example.lib.listaencadeada;
 import java.util.Comparator;
 
 import colecao.IColecao;

@@ -1,4 +1,4 @@
-package com.example.lib;
+package com.example.lib.listaencadeada;
 
 public class Node<T> {
     Node<T> next;

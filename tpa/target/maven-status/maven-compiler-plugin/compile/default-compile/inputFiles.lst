@@ -1,6 +1,12 @@
-/workspaces/tpa-2026-2/tpa/src/main/java/com/example/IColecao.java
-/workspaces/tpa-2026-2/tpa/src/main/java/com/example/Menu.java
-/workspaces/tpa-2026-2/tpa/src/main/java/com/example/Node.java
-/workspaces/tpa-2026-2/tpa/src/main/java/com/example/ListaEncadeada.java
-/workspaces/tpa-2026-2/tpa/src/main/java/com/example/App.java
-/workspaces/tpa-2026-2/tpa/src/main/java/com/example/Contato.java
+D:\Gustavo\Faculdade\6 Semestre\TPA\tpa-2026-2\tpa\src\main\java\com\example\lib\arvorebinaria\ArvoreBinariaBase.java
+D:\Gustavo\Faculdade\6 Semestre\TPA\tpa-2026-2\tpa\src\main\java\com\example\lib\arvorebinaria\ArvoreBinaria.java
+D:\Gustavo\Faculdade\6 Semestre\TPA\tpa-2026-2\tpa\src\main\java\colecao\IColecao.java
+D:\Gustavo\Faculdade\6 Semestre\TPA\tpa-2026-2\tpa\src\main\java\gerador\GeradorArquivos.java
+D:\Gustavo\Faculdade\6 Semestre\TPA\tpa-2026-2\tpa\src\main\java\com\example\lib\listaencadeada\ListaEncadeada.java
+D:\Gustavo\Faculdade\6 Semestre\TPA\tpa-2026-2\tpa\src\main\java\com\example\lib\listaencadeada\Node.java
+D:\Gustavo\Faculdade\6 Semestre\TPA\tpa-2026-2\tpa\src\main\java\com\example\app\App.java
+D:\Gustavo\Faculdade\6 Semestre\TPA\tpa-2026-2\tpa\src\main\java\com\example\app\Contato.java
+D:\Gustavo\Faculdade\6 Semestre\TPA\tpa-2026-2\tpa\src\main\java\com\example\lib\arvorebinaria\NoArvore.java
+D:\Gustavo\Faculdade\6 Semestre\TPA\tpa-2026-2\tpa\src\main\java\com\example\app\ComparatorContatoNome.java
+D:\Gustavo\Faculdade\6 Semestre\TPA\tpa-2026-2\tpa\src\main\java\com\example\app\ComparatorContatoTelefone.java
+D:\Gustavo\Faculdade\6 Semestre\TPA\tpa-2026-2\tpa\src\main\java\com\example\app\Menu.java

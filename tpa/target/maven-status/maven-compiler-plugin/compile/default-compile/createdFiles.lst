@@ -1,0 +1,12 @@
+colecao\IColecao.class
+com\example\app\ComparatorContatoNome.class
+com\example\lib\arvorebinaria\ArvoreBinaria.class
+com\example\app\Contato.class
+com\example\lib\arvorebinaria\ArvoreBinariaBase.class
+gerador\GeradorArquivos.class
+com\example\app\Menu.class
+com\example\lib\listaencadeada\Node.class
+com\example\lib\listaencadeada\ListaEncadeada.class
+com\example\app\ComparatorContatoTelefone.class
+com\example\app\App.class
+com\example\lib\arvorebinaria\NoArvore.class

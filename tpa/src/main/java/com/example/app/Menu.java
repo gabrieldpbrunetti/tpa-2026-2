@@ -46,10 +46,19 @@ public class Menu {
     }
 
 
-    public boolean obterOrdenada() {
-        System.out.print("Você deseja que as listas sejam ordenadas? <s/n> ");
-        char resposta = this.s.nextLine().toLowerCase().charAt(0);
-        return resposta == 's';
+    public char obterTipoColecao() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Qual estrutura deseja usar?\n");
+        sb.append("1. Lista ordenada\n");
+        sb.append("2. Lista não ordenada\n");
+        sb.append("3. Árvore binária");
+
+        while (true) {
+            System.out.println(sb.toString());
+            String resposta = this.s.nextLine().strip();
+            if (resposta.length() == 1 && "123".indexOf(resposta.charAt(0)) >= 0)
+                return resposta.charAt(0);
+        }
     }
 
     public Contato obterContato() {

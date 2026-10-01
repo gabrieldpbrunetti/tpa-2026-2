@@ -3,23 +3,30 @@ package com.example.app;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import colecao.IColecao;
-import com.example.lib.ListaEncadeada;
+import com.example.lib.arvorebinaria.ArvoreBinaria;
+import com.example.lib.listaencadeada.ListaEncadeada;
 
 public class App
 {
+    private static IColecao<Contato> criarColecao(char tipo, Comparator<Contato> comparador) {
+        if (tipo == '3')
+            return new ArvoreBinaria<Contato>(comparador);
+        return new ListaEncadeada<Contato>(comparador, tipo == '1');
+    }
+
     public static void main( String[] args )
     {
         Menu m = new Menu();
 
-        boolean ordenada;
-        ordenada = m.obterOrdenada();
+        char tipo = m.obterTipoColecao();
 
         // Fonte da verdade: telefone é a chave única do negócio.
-        IColecao<Contato> colecaoPorTelefone = new ListaEncadeada<Contato>(new ComparatorContatoTelefone(), ordenada);
+        IColecao<Contato> colecaoPorTelefone = criarColecao(tipo, new ComparatorContatoTelefone());
         // Índice auxiliar só para acelerar a busca por nome (nome não é único, então nunca é usado para remover).
-        IColecao<Contato> colecaoPorNome = new ListaEncadeada<Contato>(new ComparatorContatoNome(), ordenada);
+        IColecao<Contato> colecaoPorNome = criarColecao(tipo, new ComparatorContatoNome());
 
         char opcao;
         do {
