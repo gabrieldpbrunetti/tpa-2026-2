@@ -27,7 +27,7 @@ public class ArvoreBinaria<T> extends ArvoreBinariaBase<T> {
         int cmp = this.comparador.compare(novoValor, no.valor);
         if (cmp < 0)
             no.esquerda = adicionar(no.esquerda, novoValor);
-        else if (cmp > 0)
+        else
             no.direita = adicionar(no.direita, novoValor);
         return no;
     }
@@ -70,7 +70,6 @@ public class ArvoreBinaria<T> extends ArvoreBinariaBase<T> {
             return no;
         }
 
-        // Folha ou um filho: o pai passa a apontar para o filho (ou null).
         if (no.esquerda == null) {
             this.quantidade--;
             return no.direita;
@@ -80,8 +79,6 @@ public class ArvoreBinaria<T> extends ArvoreBinariaBase<T> {
             return no.esquerda;
         }
 
-        // Dois filhos: copia o valor do sucessor em ordem (menor da subárvore direita)
-        // e remove o sucessor da subárvore direita.
         NoArvore<T> sucessor = no.direita;
         while (sucessor.esquerda != null)
             sucessor = sucessor.esquerda;
@@ -107,25 +104,6 @@ public class ArvoreBinaria<T> extends ArvoreBinariaBase<T> {
     }
 
     @Override
-    public String caminharEmOrdem() {
-        StringBuilder sb = new StringBuilder("[");
-        ArrayDeque<NoArvore<T>> pilha = new ArrayDeque<NoArvore<T>>();
-        NoArvore<T> atual = this.raiz;
-        while (atual != null || !pilha.isEmpty()) {
-            while (atual != null) {
-                pilha.push(atual);
-                atual = atual.esquerda;
-            }
-            atual = pilha.pop();
-            if (sb.length() > 1) sb.append(", ");
-            sb.append(atual.valor);
-            atual = atual.direita;
-        }
-        sb.append("]");
-        return sb.toString();
-    }
-
-    @Override
     public String caminharEmNivel() {
         StringBuilder sb = new StringBuilder("[");
         if (this.raiz != null) {
@@ -142,8 +120,26 @@ public class ArvoreBinaria<T> extends ArvoreBinariaBase<T> {
                 }
                 if (!fila.isEmpty()) sb.append("\n");
             }
-        }
+        }    
         sb.append("]");
         return sb.toString();
+    }
+
+    @Override
+    public String caminharEmOrdem() {
+        StringBuilder sb = new StringBuilder("[");
+        caminharEmOrdem(this.raiz, sb);
+        sb.append("]");
+        return sb.toString();
+    }
+
+    protected void caminharEmOrdem(NoArvore<T> no, StringBuilder sb) {
+        if (no == null)
+            return;
+
+        caminharEmOrdem(no.esquerda, sb);
+        sb.append(no.valor).append(", ");
+        caminharEmOrdem(no.direita, sb);
+        return;
     }
 }
