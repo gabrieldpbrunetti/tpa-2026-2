@@ -146,8 +146,8 @@ public class ArvoreBinaria<T> extends ArvoreBinariaBase<T> {
             return;
 
         caminharEmOrdem(no.esquerda, sb);
-        sb.append(no.valor).append(", ");
+        if (sb.length() > 1) sb.append(", ");
+        sb.append(no.valor);
         caminharEmOrdem(no.direita, sb);
-        return;
     }
 }
