@@ -29,6 +29,7 @@ public class ArvoreBinaria<T> extends ArvoreBinariaBase<T> {
             no.esquerda = adicionar(no.esquerda, novoValor);
         else
             no.direita = adicionar(no.direita, novoValor);
+        atualizarAltura(no);
         return no;
     }
 
@@ -63,10 +64,12 @@ public class ArvoreBinaria<T> extends ArvoreBinariaBase<T> {
         int cmp = this.comparador.compare(valor, no.valor);
         if (cmp < 0) {
             no.esquerda = remover(no.esquerda, valor);
+            atualizarAltura(no);
             return no;
         }
         if (cmp > 0) {
             no.direita = remover(no.direita, valor);
+            atualizarAltura(no);
             return no;
         }
 
@@ -84,6 +87,7 @@ public class ArvoreBinaria<T> extends ArvoreBinariaBase<T> {
             sucessor = sucessor.esquerda;
         no.valor = sucessor.valor;
         no.direita = remover(no.direita, sucessor.valor);
+        atualizarAltura(no);
         return no;
     }
 
@@ -100,7 +104,11 @@ public class ArvoreBinaria<T> extends ArvoreBinariaBase<T> {
     protected int altura(NoArvore<T> no) {
         if (no == null)
             return -1;
-        return 1 + Math.max(altura(no.esquerda), altura(no.direita));
+        return no.altura;
+    }
+
+    protected void atualizarAltura(NoArvore<T> no) {
+        no.altura = 1 + Math.max(altura(no.esquerda), altura(no.direita));
     }
 
     @Override
