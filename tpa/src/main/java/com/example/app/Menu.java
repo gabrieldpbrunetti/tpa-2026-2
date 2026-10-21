@@ -51,12 +51,13 @@ public class Menu {
         sb.append("Qual estrutura deseja usar?\n");
         sb.append("1. Lista ordenada\n");
         sb.append("2. Lista não ordenada\n");
-        sb.append("3. Árvore binária");
+        sb.append("3. Árvore binária\n");
+        sb.append("4. Árvore AVL");
 
         while (true) {
             System.out.println(sb.toString());
             String resposta = this.s.nextLine().strip();
-            if (resposta.length() == 1 && "123".indexOf(resposta.charAt(0)) >= 0)
+            if (resposta.length() == 1 && "1234".indexOf(resposta.charAt(0)) >= 0)
                 return resposta.charAt(0);
         }
     }

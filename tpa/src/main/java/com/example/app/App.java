@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 import colecao.IColecao;
+import com.example.lib.arvorebinaria.ArvoreAVL;
 import com.example.lib.arvorebinaria.ArvoreBinaria;
 import com.example.lib.listaencadeada.ListaEncadeada;
 
@@ -14,6 +15,8 @@ public class App
     private static IColecao<Contato> criarColecao(char tipo, Comparator<Contato> comparador) {
         if (tipo == '3')
             return new ArvoreBinaria<Contato>(comparador);
+        if (tipo == '4')
+            return new ArvoreAVL<Contato>(comparador);
         return new ListaEncadeada<Contato>(comparador, tipo == '1');
     }
 

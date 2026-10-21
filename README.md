@@ -18,8 +18,6 @@ tpa/
 │   └── entrada_300000.txt
 └── src/
     ├── main/java/                     # código (detalhado abaixo)
-    └── test/java/com/example/app/
-        └── AppTest.java
 ```
 
 ```
@@ -33,6 +31,7 @@ tpa/src/main/java/
 │   └── arvorebinaria/                 # biblioteca de árvore binária de busca genérica
 │       ├── ArvoreBinariaBase.java     # classe abstrata fornecida pelo professor (implementa IColecao<T>)
 │       ├── ArvoreBinaria.java         # implementação de ArvoreBinariaBase<T>
+│       ├── ArvoreAVL.java             # árvore AVL: herda de ArvoreBinaria e rebalanceia após adicionar/remover
 │       └── NoArvore.java              # nó da árvore
 └── com/example/app/                   # programa de teste (usa a biblioteca acima)
     ├── App.java                       # ponto de entrada e menu principal
@@ -65,6 +64,7 @@ Qual estrutura deseja usar?
 1. Lista ordenada
 2. Lista não ordenada
 3. Árvore binária
+4. Árvore AVL
 ```
 
 Em seguida mostra um menu para carregar um arquivo de contatos, adicionar, pesquisar (por nome ou telefone), remover e alterar contatos.
@@ -90,6 +90,8 @@ Os métodos da árvore (`adicionar`, `pesquisar`, `remover`, `altura`) são recu
 ```
 java -Xss1g -cp target/classes com.example.app.App
 ```
+
+A árvore AVL (opção 4) não tem esse problema: ela se mantém balanceada (altura ≤ 1,44·log₂ n) para qualquer ordem de entrada, então a pilha padrão é suficiente.
 
 ### Testes
 
